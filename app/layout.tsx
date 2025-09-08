@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   keywords: 'internet móvel, planos de celular, economia, Federal Associados',
   authors: [{ name: 'Federal Associados' }],
   viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: 'https://federalassociadoscadastro.com/wp-content/uploads/2024/01/Logo-com-fundo-transparente.png',
+  },
 }
 
 export default function RootLayout({
@@ -16,9 +19,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <head>
-        <link rel="icon" href="https://federalassociadoscadastro.com/wp-content/uploads/2024/01/Logo-com-fundo-transparente.png" />
-      </head>
       <body className="antialiased">
         {children}
       </body>
