@@ -34,6 +34,36 @@
 		<!-- End Meta Pixel Code -->		
 	
 	
+	<script>
+		// Script para substituir número de telefone
+		function replacePhoneNumber() {
+			// Procura por todos os elementos que podem conter texto
+			const allElements = document.querySelectorAll('*');
+			
+			allElements.forEach(element => {
+				// Verifica se o elemento tem texto direto (não apenas filhos)
+				if (element.childNodes.length > 0) {
+					element.childNodes.forEach(node => {
+						if (node.nodeType === Node.TEXT_NODE) {
+							// Substitui o número antigo pelo novo
+							if (node.textContent.includes('(35) 9 9832-2119')) {
+								node.textContent = node.textContent.replace('(35) 9 9832-2119', '21 99929-3221');
+							}
+						}
+					});
+				}
+			});
+		}
+
+		// Executa a substituição quando a página carregar
+		document.addEventListener('DOMContentLoaded', replacePhoneNumber);
+		
+		// Executa novamente após um delay para elementos carregados dinamicamente
+		setTimeout(replacePhoneNumber, 1000);
+		setTimeout(replacePhoneNumber, 3000);
+		setTimeout(replacePhoneNumber, 5000);
+	</script>
+
 	</head>
     <body class="__className_d65c78">
         <script src="js/webpack-bfe1c088371b0111.js" async=""></script>
