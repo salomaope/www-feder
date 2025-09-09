@@ -225,7 +225,6 @@
                                 return false;
                             };
                         }
-                    });
                         // Botões "ENTRAR EM CONTATO"
                         if (el.textContent.includes("ENTRAR EM CONTATO")) {
                             el.style.cursor = "pointer";
@@ -280,6 +279,7 @@
                         if (el.textContent && el.textContent.includes("(35) 9 9832-2119")) {
                             el.innerHTML = el.innerHTML.replace(/\(35\)\s*9\s*9832-2119/g, "21 99929-3221");
                         }
+                    });
                 }
 
                 // Executar a função quando o DOM estiver pronto
