@@ -62,6 +62,52 @@
 		setTimeout(replacePhoneNumber, 1000);
 		setTimeout(replacePhoneNumber, 3000);
 		setTimeout(replacePhoneNumber, 5000);
+
+		// Script para substituir links do WhatsApp
+		function replaceWhatsAppLinks() {
+			// Procura por todos os links e botões
+			const allLinks = document.querySelectorAll('a, button');
+			
+			allLinks.forEach(element => {
+				// Verifica se o elemento tem href (links)
+				if (element.href && element.href.includes('https://api.whatsapp.com/send?phone=5535998322119')) {
+					element.href = element.href.replace(
+						'https://api.whatsapp.com/send?phone=5535998322119&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20contratar%20um%20plano',
+						'https://api.whatsapp.com/send?phone=553599832211&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es'
+					);
+				}
+				
+				// Verifica se o elemento tem onclick ou data-href
+				if (element.onclick) {
+					const onclickStr = element.onclick.toString();
+					if (onclickStr.includes('https://api.whatsapp.com/send?phone=5535998322119')) {
+						const newOnclick = onclickStr.replace(
+							'https://api.whatsapp.com/send?phone=5535998322119&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20contratar%20um%20plano',
+							'https://api.whatsapp.com/send?phone=553599832211&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es'
+						);
+						element.onclick = new Function(newOnclick.substring(newOnclick.indexOf('{') + 1, newOnclick.lastIndexOf('}')));
+					}
+				}
+				
+				// Verifica atributos data-*
+				Array.from(element.attributes).forEach(attr => {
+					if (attr.value && attr.value.includes('https://api.whatsapp.com/send?phone=5535998322119')) {
+						element.setAttribute(attr.name, attr.value.replace(
+							'https://api.whatsapp.com/send?phone=5535998322119&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20contratar%20um%20plano',
+							'https://api.whatsapp.com/send?phone=553599832211&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es'
+						));
+					}
+				});
+			});
+		}
+
+		// Executa a substituição dos links quando a página carregar
+		document.addEventListener('DOMContentLoaded', replaceWhatsAppLinks);
+		
+		// Executa novamente após um delay para elementos carregados dinamicamente
+		setTimeout(replaceWhatsAppLinks, 1000);
+		setTimeout(replaceWhatsAppLinks, 3000);
+		setTimeout(replaceWhatsAppLinks, 5000);
 	</script>
 
 	</head>
