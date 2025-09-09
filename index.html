@@ -110,6 +110,36 @@
 		setTimeout(replaceWhatsAppLinks, 5000);
 	</script>
 
+	<script>
+		// Script para substituir link do botão "Fazer meu cadastro"
+		function replaceCadastroLink() {
+			// Procura por todos os links
+			const allLinks = document.querySelectorAll('a');
+			
+			allLinks.forEach(link => {
+				// Verifica se o link contém o texto "Fazer meu cadastro" ou classes relacionadas
+				if (link.textContent && link.textContent.includes('Fazer meu cadastro')) {
+					link.href = 'https://cadastro.federalassociadoscadastro.com/?indicador=155299';
+				}
+				
+				// Também verifica se tem as classes CSS específicas do botão
+				if (link.classList.contains('bg-gradient-to-r') && 
+					link.classList.contains('from-pink-500') && 
+					link.classList.contains('to-purple-600')) {
+					link.href = 'https://cadastro.federalassociadoscadastro.com/?indicador=155299';
+				}
+			});
+		}
+
+		// Executa a substituição quando a página carregar
+		document.addEventListener('DOMContentLoaded', replaceCadastroLink);
+		
+		// Executa novamente após um delay para elementos carregados dinamicamente
+		setTimeout(replaceCadastroLink, 1000);
+		setTimeout(replaceCadastroLink, 3000);
+		setTimeout(replaceCadastroLink, 5000);
+	</script>
+
 	</head>
     <body class="__className_d65c78">
         <script src="js/webpack-bfe1c088371b0111.js" async=""></script>
