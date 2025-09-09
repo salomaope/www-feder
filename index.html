@@ -211,7 +211,7 @@
                             el.onclick = function (e) {
                                 e.preventDefault();
                                 console.log("Botão ECONOMIZAR clicado, abrindo URL...");
-                                window.open("https://wa.me/5521999293221", "_blank");
+                                window.open("https://api.whatsapp.com/send?phone=5521999293221&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es", "_blank");
                                 return false;
                             };
                         }
@@ -221,11 +221,53 @@
                             el.onclick = function (e) {
                                 e.preventDefault();
                                 console.log("Botão ESPECIALISTA clicado, abrindo URL...");
-                                window.open("https://wa.me/5521999293221", "_blank");
+                                window.open("https://api.whatsapp.com/send?phone=5521999293221&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es", "_blank");
                                 return false;
                             };
                         }
                     });
+                        // Botões "ENTRAR EM CONTATO"
+                        if (el.textContent.includes("ENTRAR EM CONTATO")) {
+                            el.style.cursor = "pointer";
+                            el.onclick = function (e) {
+                                e.preventDefault();
+                                console.log("Botão ENTRAR EM CONTATO clicado, abrindo URL...");
+                                window.open("https://api.whatsapp.com/send?phone=5521999293221&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es", "_blank");
+                                return false;
+                            };
+                        }
+
+                        // Botões "QUERO COMEÇAR AGORA"
+                        if (el.textContent.includes("QUERO COMEÇAR AGORA")) {
+                            el.style.cursor = "pointer";
+                            el.onclick = function (e) {
+                                e.preventDefault();
+                                console.log("Botão QUERO COMEÇAR AGORA clicado, abrindo URL...");
+                                window.open("https://api.whatsapp.com/send?phone=5521999293221&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es", "_blank");
+                                return false;
+                            };
+                        }
+
+                        // Botões "Fazer meu cadastro"
+                        if (el.textContent.includes("Fazer meu cadastro")) {
+                            el.style.cursor = "pointer";
+                            el.onclick = function (e) {
+                                e.preventDefault();
+                                console.log("Botão Fazer meu cadastro clicado, abrindo URL...");
+                                window.open("https://api.whatsapp.com/send?phone=5521999293221&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es", "_blank");
+                                return false;
+                            };
+                        }
+
+                        // Verificar se o elemento tem href com WhatsApp e substituir
+                        if (el.href && el.href.includes("whatsapp.com")) {
+                            el.href = "https://api.whatsapp.com/send?phone=5521999293221&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es";
+                        }
+
+                        // Verificar se o elemento tem href com wa.me e substituir
+                        if (el.href && el.href.includes("wa.me")) {
+                            el.href = "https://api.whatsapp.com/send?phone=5521999293221&text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20mais%20informa%C3%A7%C3%B5es";
+                        }
                 }
 
                 // Executar a função quando o DOM estiver pronto
@@ -238,6 +280,7 @@
                 // Executar novamente após um tempo para garantir que todos os elementos foram carregados
                 setTimeout(setupSpecificButtons, 1000);
                 setTimeout(setupSpecificButtons, 3000);
+                setTimeout(setupSpecificButtons, 5000);
             })();
         </script>
     
